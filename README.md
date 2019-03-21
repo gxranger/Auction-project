@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Auction
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.3.
@@ -25,3 +26,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+=======
+# Auction-project
+Angular4入门级练手项目
+>>>>>>> 0b53790f3098b9a37b5c7558911d0619f0e2d6f2
