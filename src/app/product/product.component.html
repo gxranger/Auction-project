@@ -3,12 +3,10 @@
     <div class="card">
       <img class="card-img-top" src="http://placehold.it/320x150" alt="Card image" style="width:100%">
       <div class="card-body">
-        <h5 class="card-title float-right">{{product.price }}</h5>
+        <h5 class="card-title float-right">{{product.price }}元</h5>
         <h5 class="card-title"><b>{{product.title}}</b></h5>
         <p class="card-text">{{product.desc}}</p>
-      </div>
-      <div>
-        <app-stars></app-stars>
+        <app-stars [rating]="product.rating"></app-stars>
       </div>
     </div>
   </div>
