@@ -1,7 +1,36 @@
-<div class="jumbotron jumbotron-fluid">
-  <div class="container">
-     <img class="rounded" src="http://placehold.it/320x150" alt="Card image" >
-    <h1 class="display-4">{{productTitle}}</h1>
-    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+<div class="container">
+  <div class="row">
+    <div class="jumbotron-fluid col-sm-12">
+      <img class="rounded center-block" src="http://placehold.it/820x320" alt="Card image" width="100%" >
+      <h4 class="float-right">{{product.price}}元</h4>
+      <h4>{{product.title}}</h4>
+      <p class="lead">{{product.desc}}</p>
+      <p>
+          <app-stars [rating]="product.rating"></app-stars>    
+      </p>
+      
+        
+    </div>
+
+    <div class="comment col-sm-12">
+      <h4>商品评论
+          <span class="badge badge-pill badge-primary">{{comments.length}}</span>
+      </h4>
+        <ul class="list-group list-group-flush">
+            <li *ngFor="let comment of comments" class="list-group-item">     
+              <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">{{comment.user}}</h5>
+                  <small class="text-muted">{{comment.timestamp}}</small>
+              </div>
+                <p class="mb-1">{{comment.content}}</p>
+                <small class="text-muted">
+                  <app-stars [rating]="comment.rating"></app-stars>
+                </small>
+            </li>
+
+            
+
+          </ul>
+    </div>
   </div>
 </div>

@@ -4,7 +4,7 @@
       <img class="card-img-top" src="http://placehold.it/320x150" alt="Card image" style="width:100%">
       <div class="card-body">
         <h5 class="card-title float-right">{{product.price }}元</h5>
-        <h5 class="card-title"><b><a [routerLink]="['/product',product.title]">{{product.title}}</a></b></h5>
+        <h5 class="card-title"><b><a [routerLink]="['/product',product.id]">{{product.title}}</a></b></h5>
         <p class="card-text">{{product.desc}}</p>
         <app-stars [rating]="product.rating"></app-stars>
       </div>
