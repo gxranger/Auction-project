@@ -1,6 +1,8 @@
 import { Product } from './../shard/product.service';
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../shard/product.service';
+import { FormControl } from '@angular/forms';
+import 'rxjs/Rx';
 
 @Component({
   selector: 'app-product',
@@ -10,7 +12,17 @@ import { ProductService } from '../shard/product.service';
 export class ProductComponent implements OnInit {
   private products:Product[];
 
-  constructor(private productService:ProductService) { }
+  private keyword:string;
+
+  private titleFilter:FormControl = new FormControl();
+
+  constructor(private productService:ProductService) { 
+    this.titleFilter.valueChanges
+      .debounceTime(500)
+      .subscribe(
+        value => this.keyword = value
+      );
+  }
 
   ngOnInit() {
     this.products = this.productService.getProducts();
