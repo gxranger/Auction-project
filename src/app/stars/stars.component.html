@@ -1,4 +1,4 @@
 <p>
-  <i *ngFor="let star of stars" [class]="star?'fa fa-star-o':'fa fa-star'" aria-hidden="true"></i>
-  <span>{{rating}}星</span>
+  <i *ngFor="let star of stars; let i = index" [class]="star?'fa fa-star-o':'fa fa-star'" aria-hidden="true" (click)="clickStar(i)" ></i>
+  <span>{{rating | number:'1.0-2'}}星</span>
 </p>
