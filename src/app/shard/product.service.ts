@@ -21,6 +21,10 @@ export class ProductService {
 
   constructor() { }
 
+  getAllCatgories():string[] {
+    return ["电子产品","书籍音像","食品生鲜"];
+  }
+
   getProducts():Product[]{
     return this.products;
   }

@@ -1,19 +1,22 @@
-<form name="searchForm">
+<form [formGroup]="formModel" (ngSubmit)="onSearch()" novalidate>
   <div class="form-group ">
     <label for="productTitle">商品名称:</label>
-    <input type="text" class="form-control" id="productTitle">
+    <input type="text" [class.is-invalid]="formModel.hasError('minlength','title')" formControlName="title" class="form-control" id="productTitle">
+    <span class="invalid-feedback" [hidden]="!formModel.hasError('minlength','title')">请至少输入3个字！</span>
   </div>
   <div class="form-group">
     <label for="productPrice">商品价格:</label>
-    <input type="text" class="form-control" id="productPrice">
+    <input type="text" [class.is-invalid]="formModel.hasError('postiveNumber','price')" formControlName="price" class="form-control" id="productPrice">
+    <span class="invalid-feedback" [hidden]="!formModel.hasError('postiveNumber','price')">{{formModel.getError('postiveNumber','price')}}</span>
   </div>
   <div class="form-group">
     <label for="sel1">商品类别:</label>
-    <select class="form-control" id="sel1">
-      
+    <select formControlName="category" class="form-control" id="sel1">
+      <option value="-1">全部分类</option>
+      <option *ngFor="let category of categories" [value]="category">{{category}}</option>
     </select>
   </div>
   <div class="form-group">
-    <button type="button" class="btn btn-primary btn-block">提交</button>
+    <button type="submit" class="btn btn-primary btn-block">提交</button>
   </div>
 </form>
